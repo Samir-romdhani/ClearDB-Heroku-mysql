@@ -12,7 +12,7 @@ response.send('Hello World!!!!test0 --> test1') ;
 var connection = mysql.createConnection({
     host: 'olxl65dqfuqr6s4y.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     user: 'q2yseffhsh99cnbt',
-    password: '	fdc1grofl58s3rqc',
+    password: 'fdc1grofl58s3rqc',
     database: 'ec3n49dqttudnvr0'
 });
 
@@ -24,7 +24,7 @@ app.get('/', function(request, response) {
             console.log('error: ', err);
             throw err;
         }
-        response.send(['Hello World!!!! HOLA MUNDO!!!! Samir', rows]);
+        
     });
         
         
