@@ -1,19 +1,19 @@
 var express = require("express");
-//var mysql = require('mysql');
+var mysql = require('mysql');
 var app = express();
 app.use(express.logger());
 
-
+/*
 app.get('/', function(request, response) {
 response.send('Hello World!!!!test0 --> test1--> test2') ;
 }) ;
 
-/*
+*/
 var connection = mysql.createConnection({
-    host: 'olxl65dqfuqr6s4y.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
-    user: 'q2yseffhsh99cnbt',
-    password: '	fdc1grofl58s3rqc',
-    database: 'ec3n49dqttudnvr0'
+    host: 'us-cdbr-iron-east-03.cleardb.net',
+    user: 'bbd7ce5b72d0bc',
+    password: 'd782912a',
+    database: 'heroku_227dbd8f597ec9f'
 });
 
 connection.connect();
@@ -24,13 +24,11 @@ app.get('/', function(request, response) {
             console.log('error: ', err);
             throw err;
         }
-        response.send(['Hello World!!!! HOLA MUNDO!!!! Samir', rows]);
+      //  response.send(['Hello World!!!! HOLA MUNDO!!!! Samir', rows]);
     });
         
         
 });
-
-*/
 
 var port = process.env.PORT || 5000;
 app.listen(port, function() {
