@@ -10,11 +10,20 @@ var db_config = {
     database: 'heroku_227dbd8f597ec9f'
 };
 
+var db_config_Mariadb = {
+    host: 'olxl65dqfuqr6s4y.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+    user: 'q2yseffhsh99cnbt',
+    password: 'fdc1grofl58s3rqc',
+    database: 'ec3n49dqttudnvr0'
+};
+
 var connection;
 
 function handleDisconnect() {
     console.log('1. connecting to db:');
-    connection = mysql.createConnection(db_config); // Recreate the connection, since
+   
+     //connection = mysql.createConnection(db_config); // Recreate the connection, since
+     connection = mysql.createConnection(db_config_Mariadb); // Recreate the connection, since
 													// the old one cannot be reused.
 
     connection.connect(function(err) {              	// The server is either down
@@ -37,14 +46,26 @@ function handleDisconnect() {
 handleDisconnect();
 
 app.get('/', function(request, response) {
+    //cleardb
+    /*
     connection.query('SELECT * from t_users', function(err, rows, fields) {
         if (err) {
             console.log('error: ', err);
             throw err;
         }
         response.send(['Hello World!!!!', rows]);
-        console.log('rows: ', rows);
     });
+    */
+    //mariadb
+        connection.query('SELECT nom , mail from employes', function(err, rows, fields) {
+        if (err) {
+            console.log('error: ', err);
+            throw err;
+        }
+        response.send(['Hello World!!!!', rows]);
+    });
+    
+    
 });
 
 var port = process.env.PORT || 5000;
