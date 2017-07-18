@@ -1,4 +1,3 @@
-
 var express = require("express");
 var mysql = require('mysql');
 var app = express();
@@ -43,7 +42,6 @@ app.get('/', function(request, response) {
             console.log('error: ', err);
             throw err;
         }
-        response.send(['Hello World!!!! HOLA MUNDO!!!!', rows]);
     });
 });
 
