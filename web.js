@@ -22,8 +22,8 @@ var connection;
 function handleDisconnect() {
     console.log('1. connecting to db:');
    
-     //connection = mysql.createConnection(db_config); // Recreate the connection, since
-     connection = mysql.createConnection(db_config_Mariadb); // Recreate the connection, since
+     connection = mysql.createConnection(db_config); // Recreate the connection, since
+     //connection = mysql.createConnection(db_config_Mariadb); // Recreate the connection, since
 													// the old one cannot be reused.
 
     connection.connect(function(err) {              	// The server is either down
@@ -47,7 +47,7 @@ handleDisconnect();
 
 app.get('/', function(request, response) {
     //cleardb
-    /*
+    
     connection.query('SELECT * from t_users', function(err, rows, fields) {
         if (err) {
             console.log('error: ', err);
@@ -55,8 +55,9 @@ app.get('/', function(request, response) {
         }
         response.send(['Hello World!!!!', rows]);
     });
-    */
+    
     //mariadb
+    /*
         connection.query('SELECT nom , mail from employes', function(err, rows, fields) {
         if (err) {
             console.log('error: ', err);
@@ -64,6 +65,7 @@ app.get('/', function(request, response) {
         }
         response.send(['Hello World!!!!', rows]);
     });
+    */
     
     
 });
